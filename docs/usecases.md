@@ -1,1 +1,1 @@
-![Diagrama de portafolio](docs/diagramas/usecases/UCD-Portafolio.svg)
+![Diagrama de portafolio](diagramas/usecases/UCD-Portafolio.svg)
