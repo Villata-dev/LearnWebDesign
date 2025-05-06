@@ -1,0 +1,52 @@
+@startuml SistemaInteractivo
+
+class Usuario {
+    -ID: int
+    -Nombre: string
+    -Email: string
+    -Progreso: int
+    -Insignias: string[]
+    +IniciarSesion(): bool
+    +ActualizarProgreso(n: int): void
+}
+
+class EditorCodigo {
+    -ID: int
+    -ContenidoHTML: string
+    -ContenidoCSS: string
+    +RenderizarEnVivo(): void
+    +ActualizarContenido(html: string, css: string): void
+}
+
+class Insignia {
+    -ID: int
+    -Nombre: string
+    -Descripcion: string
+    +Desbloquear(): void
+}
+
+class Proyecto {
+    -ID: int
+    -Titulo: string
+    -Descripcion: string
+    -URL: string
+}
+
+class Portafolio {
+    -ID: int
+    -Proyectos: Proyecto[]
+    +AgregarProyecto(p: Proyecto): void
+}
+
+class BaseDeDatos {
+    +GuardarProgreso(u: Usuario): void
+    +CargarProgreso(id: int): Usuario
+}
+
+Usuario "1" -- "*" Insignia
+Usuario "1" -- "1" Portafolio
+Portafolio "1" -- "*" Proyecto
+EditorCodigo -- Usuario
+BaseDeDatos --> Usuario
+
+@enduml
