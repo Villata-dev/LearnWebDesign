@@ -1,0 +1,47 @@
+@startuml ClassDiagram-SistemaAprendizaje
+
+' Definición de clases
+class User {
+  +int ID
+  +string Nombre
+  +string Correo
+  +bool Activo
+  +int Progreso
+}
+
+class Achievement {
+  +int ID
+  +string Nombre
+  +string Descripcion
+  +bool Desbloqueado
+}
+
+class Editor {
+  +int ID
+  +int UsuarioID
+  +string Codigo
+  +string Lenguaje
+}
+
+class Proyecto {
+  +int ID
+  +int UsuarioID
+  +string Titulo
+  +string Descripcion
+  +string URL
+}
+
+class Progreso {
+  +int ID
+  +int UsuarioID
+  +int Nivel
+  +int Puntos
+}
+
+' Relaciones entre clases
+User "1" --> "*" Achievement : desbloquea
+User "1" --> "*" Proyecto : publica
+User "1" --> "1" Progreso : tiene
+User "1" --> "*" Editor : usa
+
+@enduml
