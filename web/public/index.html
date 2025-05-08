@@ -2,21 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>CodeAchieve</title>
+  <title>Mi App SPA</title>
 </head>
 <body>
+
+  <!-- Navegación -->
   <nav>
-    <a href="/" data-link>Inicio</a> |
-    <a href="/login" data-link>Login</a> |
-    <a href="/editor" data-link>Editor</a> |
-    <a href="/logros" data-link>Logros</a> |
+    <a href="/" data-link>Home</a>
+    <a href="/login" data-link>Login</a>
+    <a href="/editor" data-link>Editor</a>
     <a href="/portafolio" data-link>Portafolio</a>
+    <a href="/logros" data-link>Logros</a>
+    <a href="/usuario" data-link>Usuario</a>
   </nav>
 
-  <main id="content">
-    <h1>Cargando...</h1>
-  </main>
+  <!-- Contenedor principal donde se cargan las vistas -->
+  <div id="content"></div>
 
-  <script src="js/router.js" type="module"></script>
+  <script type="module" src="./js/router.js"></script>
 </body>
 </html>
