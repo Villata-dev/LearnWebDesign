@@ -1,33 +1,43 @@
-const routes = {
-  "/": "./views/home.html",
-  "/login": "./views/login.html",
-  "/editor": "./views/editor.html",
-  "/portafolio": "./views/portafolio.html",
-  "/logros": "./views/logros.html",
-  "/usuario": "./views/usuario.html",
+const routeToFile = {
+  "/": "../views/home.html",
+  "/login": "../views/login.html",
+  "/editor": "../views/editor.html",
+  "/portafolio": "../views/portafolio.html",
+  "/logros": "../views/logros.html",
+  "/usuario": "../views/usuario.html"
 };
 
-const loadContent = async (path) => {
-  const route = routes[path] || routes["/"];
-  const html = await fetch(route).then(res => res.text());
-  document.getElementById("content").innerHTML = html;
-};
+// Función para cargar una vista en el contenedor principal
+async function loadView(url) {
+  const contentDiv = document.getElementById("content");
+  try {
+    const response = await fetch(routeToFile[url] || routeToFile["/"]);
+    if (!response.ok) throw new Error("Error al cargar la vista");
+    const html = await response.text();
+    contentDiv.innerHTML = html;
+  } catch (error) {
+    contentDiv.innerHTML = `<h1>Error 404: Vista no encontrada</h1>`;
+    console.error(error);
+  }
+}
 
-const handleRoute = (event) => {
-  event.preventDefault();
-  const path = event.target.getAttribute("href");
-  window.history.pushState({}, "", path);
-  loadContent(path);
-};
+// Función para manejar la navegación
+function navigate(event) {
+  if (event.target.matches("[data-link]")) {
+    event.preventDefault();
+    const url = event.target.getAttribute("href");
+    history.pushState(null, null, url);
+    loadView(url);
+  }
+}
 
-window.addEventListener("popstate", () => {
-  loadContent(window.location.pathname);
+// Configurar el enrutador al cargar la página
+window.addEventListener("DOMContentLoaded", () => {
+  loadView(location.pathname);
+  document.body.addEventListener("click", navigate);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("a[data-link]").forEach(link => {
-    link.addEventListener("click", handleRoute);
-  });
-
-  loadContent(window.location.pathname);
+// Manejar el evento de retroceso/avance del navegador
+window.addEventListener("popstate", () => {
+  loadView(location.pathname);
 });
