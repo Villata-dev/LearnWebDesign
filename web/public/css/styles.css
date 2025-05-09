@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+/* Paleta:
+   Primario: #C2BBFF
+   Secundario: #3399FF
+   Fondo general: #D6C5F0
+   Casilla de código: #1E1E1E
+   Resultados: #FFFFFF
+*/
+
+/* Estilos generales */
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background: #D6C5F0;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    max-width: 900px;
+    margin: 48px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(60,60,90,0.08);
+    overflow: hidden;
+    min-height: 80vh;
+}
+
+/* Barra de navegación */
+nav {
+    background: #3399FF;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: 64px;
+}
+
+nav li {
+    display: flex;
+    align-items: center;
+}
+
+nav li:last-child {
+    margin-left: auto;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover, nav a.active {
+    background: #C2BBFF;
+    color: #222;
+}
+
+.profile-icon svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+    transition: fill 0.2s;
+}
+
+.profile-icon a:hover svg {
+    fill: #C2BBFF;
+}
+
+#content {
+    padding: 48px 32px;
+    min-height: 400px;
+    background: transparent;
+}
+
+/* Botones */
+.button-primary {
+    background: #C2BBFF;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin: 0 8px 0 0;
+}
+
+.button-primary:hover {
+    background: #b0a6f0;
+}
+
+.button-secondary {
+    background: transparent;
+    color: #3399FF;
+    border: 2px solid #3399FF;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.button-secondary:hover {
+    background: #3399FF;
+    color: #fff;
+}
+
+/* Inputs y formularios */
+input[type="text"], input[type="password"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 24px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border 0.2s;
+    background: #fff;
+    color: #222;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+    border-color: #3399FF;
+    outline: none;
+}
+
+/* Tarjetas */
+.card {
+    background: #3399FF;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(51,153,255,0.08);
+    padding: 16px;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.card h2, .card h3 {
+    color: #fff;
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Casilla de código */
+.code-editor, pre.code-editor {
+    background: #1E1E1E;
+    color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 16px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+    border: none;
+}
+
+/* Vista de resultados */
+.result-view {
+    background: #fff;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    color: #222;
+}
+
+/* Espaciados */
+.section {
+    margin-bottom: 48px;
+}
+
+.component-space {
+    margin-bottom: 24px;
+}
+
+/* Tamaños de texto */
+.text-large {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.text-medium {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.text-normal {
+    font-size: 16px;
+}
+
+/* Página de inicio */
+.homepage-container {
+    text-align: center;
+    padding: 48px 0;
+}
+
+.homepage-container h1 {
+    color: #3399FF;
+    font-size: 32px;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.homepage-container p {
+    font-size: 16px;
+    color: #444;
+}
+
+/* Login */
+.login-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 16px rgba(44,62,80,0.08);
+    text-align: center;
+    width: 350px;
+    margin: 48px auto;
+}
+
+.login-container h1 {
+    color: #3399FF;
+    font-size: 24px;
+    margin-bottom: 24px;
+    font-weight: 700;
+}
+
+.login-container a {
+    display: block;
+    margin-top: 16px;
+    color: #3399FF;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Mensaje especial */
+.sala-estar {
+    background: #C2BBFF;
+    color: #222;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(194,187,255,0.12);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #root {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    #content {
+        padding: 24px 8px;
+    }
+    .login-container {
+        width: 100%;
+        padding: 24px 8px;
+    }
+}
+/* Fondo degradado suave */
+.background-gradient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(135deg, #D6C5F0 0%, #C2BBFF 100%);
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* Mejor nav */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #3399FF;
+    padding: 0 32px;
+    border-bottom: 2px solid #C2BBFF;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.brand-logo {
+    font-size: 1.5em;
+}
+
+.main-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 64px;
+}
+
+.main-nav .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.main-nav .nav-link:hover, .main-nav .nav-link.active {
+    background: #C2BBFF;
+    color: #222;
+}

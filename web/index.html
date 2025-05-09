@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnWebDesign</title>
+    <meta name="description" content="Plataforma para crear, guardar y compartir portafolios de desarrollo web.">
+    <link rel="icon" href="public/favicon.ico">
+    <link rel="stylesheet" href="public/css/styles.css">
+    <script src="public/js/router.js" defer></script>
+</head>
+<body>
+    <div id="root">
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="/" data-route="/">Inicio</a></li>
+                <li><a href="/new-portfolio" data-route="/new-portfolio">Nuevo portafolio</a></li>
+                <li><a href="/saved-portfolios" data-route="/saved-portfolios">Portafolios guardados</a></li>
+                <li><a href="/share-portfolio" data-route="/share-portfolio">Compartir portafolio</a></li>
+                <li class="profile-icon">
+                    <a href="/profile" data-route="/profile" aria-label="Perfil de usuario">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 496 512" width="32" height="32">
+                            <title>Perfil</title>
+                            <desc>Icono de usuario</desc>
+                            <path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 96c48.6 0 88 39.4 88 88s-39.4 88-88 88-88-39.4-88-88 39.4-88 88-88zm0 344c-58.7 0-111.3-26.8-149.4-69.2 22.5-39.1 66.5-66.8 119.4-66.8h60c52.9 0 96.9 27.7 119.4 66.8-38.1 42.4-90.7 69.2-149.4 69.2z"></path>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main id="content">
+            <!-- El contenido dinámico se cargará aquí -->
+        </main>
+    </div>
+</body>
+</html>
