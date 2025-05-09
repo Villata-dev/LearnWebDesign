@@ -43,21 +43,21 @@ Etiqueta: <app-router>
 Propósito: Encapsular la lógica de ruteo, renderizar contenido dinámico dentro de un Shadow DOM.
 
 # Relación con Arquitecturas SPA #
-El componente convierte la app en una Single Page Application.
+- El componente convierte la app en una Single Page Application.
 
-Cambia vistas dinámicamente según la URL.
+- Cambia vistas dinámicamente según la URL.
 
-Usa el navegador para mantener historial sin recargar la página.
+- Usa el navegador para mantener historial sin recargar la página.
 
-Permite ampliar el proyecto con más rutas, animaciones o transiciones.
+- Permite ampliar el proyecto con más rutas, animaciones o transiciones.
 
 # Instrucciones de Prueba #
-Levanta la app en local (localhost o servidor de pruebas).
+- Levanta la app en local (localhost o servidor de pruebas).
 
-Haz clic en los enlaces de navegación (<a data-route>).
+- Haz clic en los enlaces de navegación (<a data-route>).
 
-Verifica que el contenido cambia sin recargar.
+- Verifica que el contenido cambia sin recargar.
 
-Usa los botones atrás/adelante del navegador → confirma que actualiza correctamente.
+- Usa los botones atrás/adelante del navegador → confirma que actualiza correctamente.
 
-Escribe una ruta inválida (como /no-existe) → debe mostrar la página 404.
+- Escribe una ruta inválida (como /no-existe) → debe mostrar la página 404.
