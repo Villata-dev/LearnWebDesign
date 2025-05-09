@@ -194,3 +194,100 @@ function renderPage(path) {
             content.innerHTML = `<div class="card"><h2 class="text-medium">Página no encontrada</h2><p class="text-normal">La ruta <b>${path}</b> no existe.</p></div>`;
     }
 }
+
+class SimpleRouter extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' }); // Shadow DOM para encapsulación
+        this.routes = {
+            '/': `
+                <div class="homepage-container">
+                    <h1>Bienvenido a Learn Web Design</h1>
+                    <p>Explora nuestros cursos y comienza tu camino en el diseño web.</p>
+                </div>
+            `,
+            '/login': `
+                <div class="login-container">
+                    <h1>LearnWebDesign</h1>
+                    <input type="text" placeholder="Nombre de usuario">
+                    <input type="password" placeholder="Clave">
+                    <button>Ingresar</button>
+                    <a href="#">¿Olvidaste tu clave?</a>
+                </div>
+            `,
+            '/dashboard': `
+                <div class="dashboard-container">
+                    <h1>Progreso de Usuario</h1>
+                    <p>Detalles del progreso...</p>
+                </div>
+            `,
+            '/profile': `
+                <div class="profile-container">
+                    <h1>Datos de Usuario</h1>
+                    <p>Información de perfil...</p>
+                </div>
+            `
+        };
+    }
+
+    connectedCallback() {
+        this.render();
+        this.setupNavigation();
+        this.handlePopState();
+    }
+
+    render() {
+        const path = window.location.pathname;
+        const content = this.routes[path] || `<h1>Página no encontrada</h1>`;
+        this.shadowRoot.innerHTML = `
+            <style>
+                .homepage-container, .login-container, .dashboard-container, .profile-container {
+                    font-family: Arial, sans-serif;
+                    padding: 16px;
+                }
+                .login-container input {
+                    display: block;
+                    margin: 8px 0;
+                    padding: 8px;
+                }
+                .login-container button {
+                    padding: 8px 16px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+                .login-container a {
+                    display: block;
+                    margin-top: 8px;
+                    color: #007bff;
+                    text-decoration: none;
+                }
+            </style>
+            <nav>
+                <a href="/" data-route="/">Inicio</a>
+                <a href="/login" data-route="/login">Login</a>
+                <a href="/dashboard" data-route="/dashboard">Dashboard</a>
+                <a href="/profile" data-route="/profile">Perfil</a>
+            </nav>
+            <main>${content}</main>
+        `;
+    }
+
+    setupNavigation() {
+        this.shadowRoot.querySelectorAll('a[data-route]').forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const path = link.getAttribute('href');
+                window.history.pushState({}, '', path);
+                this.render();
+            });
+        });
+    }
+
+    handlePopState() {
+        window.addEventListener('popstate', () => this.render());
+    }
+}
+
+customElements.define('simple-router', SimpleRouter);

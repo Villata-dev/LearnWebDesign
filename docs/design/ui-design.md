@@ -23,3 +23,4 @@ Espaciados
 - Entre secciones: 48px
 - Entre componentes: 24px
 - Dentro de tarjetas: 16px
+
